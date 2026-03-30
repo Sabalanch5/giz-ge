@@ -1,0 +1,21 @@
+{
+  "common": {
+    "siteName": "GAP",
+    "siteTitle": "GAP.GE",
+    "toggleTheme": "თემის გადართვა",
+    "lightMode": "ღია თემა",
+    "darkMode": "მუქი თემა",
+    "language": "ენა",
+    "georgian": "ქართული",
+    "english": "English"
+  },
+  "underConstruction": {
+    "heading": "მალე გაიხსნება",
+    "subheading": "ვმუშაობთ საუკეთესო გამოცდილებაზე",
+    "description": "მადლობა მოთმინებისთვის. ჩვენი საიტი მალე ხელმისაწვდომი იქნება."
+  },
+  "meta": {
+    "defaultTitle": "GAP.GE",
+    "defaultDescription": "GAP — ხარისხიანი ხორბლის პროდუქტები"
+  }
+}

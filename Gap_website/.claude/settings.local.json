@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm list:*)",
+      "Bash(ls *.ts *.tsx *.mjs *.json)",
+      "Bash(cat src/app/[locale]/layout.tsx)",
+      "Bash(cat src/app/[locale]/page.tsx)"
+    ]
+  }
+}

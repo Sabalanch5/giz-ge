@@ -1,0 +1,49 @@
+---
+description: TypeScript and code quality standards for gap.ge
+globs: ["src/**/*.ts", "src/**/*.tsx"]
+alwaysApply: true
+---
+
+# Coding Standards
+
+## TypeScript
+
+- Strict mode is enabled — no `any` unless justified with a comment
+- Prefer `interface` over `type` for object shapes; use `type` for unions/intersections
+- Export types/interfaces from the file where they are defined
+- Never use `// @ts-ignore` — fix the underlying type issue
+
+## Components
+
+- One component per file; filename matches the exported name (PascalCase)
+- Use named exports for all components except page/layout route files (those use default)
+- Define props interface directly above or inline with the component
+- Server Components are the default — only add `'use client'` when genuinely needed
+
+## Server vs Client Components
+
+```
+Server Component  → data fetching, translations via getTranslations, no hooks
+Client Component  → useState, useEffect, useTheme, useRouter, browser APIs
+```
+
+Keep Client Components small. Push interactivity down to leaf nodes; render the static shell on the server.
+
+## Import Order
+
+1. External packages (`react`, `next`, `next-intl`, etc.)
+2. Internal `@/` path aliases
+3. Relative imports (only within the same feature folder)
+
+## Naming
+
+- Components: `PascalCase`
+- Functions/variables: `camelCase`
+- Constants: `UPPER_SNAKE_CASE` for true constants; `camelCase` for config objects
+- Files: `PascalCase` for components, `camelCase` for utilities and hooks
+
+## Don't
+
+- Don't add error handling for impossible cases
+- Don't add props/features "for future use" — implement when needed
+- Don't duplicate logic across components — extract to `src/lib/` or the shared feature

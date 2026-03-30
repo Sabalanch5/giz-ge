@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ─── Dark mode strategy ──────────────────────────────────────────────────────
+ * next-themes adds class="dark" to <html>. This variant makes Tailwind's
+ * dark: prefix work with that class, e.g. dark:bg-surface.
+ * ──────────────────────────────────────────────────────────────────────────── */
+@variant dark (&:is(.dark *));
+
+/* ─── Design Tokens ──────────────────────────────────────────────────────────
+ * CSS custom properties are the SINGLE SOURCE OF TRUTH for all visual tokens.
+ * Tailwind utilities reference these via @theme inline below.
+ *
+ * To retheme: update values here. You do NOT touch component files.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --background: #ffffff;
+  --background-subtle: #f9f8f6;
+
+  /* Text */
+  --foreground: #171717;
+  --foreground-muted: #737373;
+
+  /* Borders */
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+
+  /* Primary brand color
+   * ⚠️  PLACEHOLDER — replace with your actual brand color when available
+   * Current: warm amber, inspired by wheat tones */
+  --primary: #c47d2e;
+  --primary-hover: #a86520;
+  --primary-foreground: #ffffff;
+
+  /* Surfaces (cards, panels, dropdowns) */
+  --surface: #ffffff;
+  --surface-hover: #f5f4f2;
+
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.75rem;
+}
+
+.dark {
+  /* Backgrounds */
+  --background: #0a0a0a;
+  --background-subtle: #141414;
+
+  /* Text */
+  --foreground: #fafafa;
+  --foreground-muted: #a3a3a3;
+
+  /* Borders */
+  --border: #262626;
+  --border-strong: #404040;
+
+  /* Primary brand color — slightly brighter for dark backgrounds
+   * ⚠️  PLACEHOLDER — replace with your actual brand color when available */
+  --primary: #d4922e;
+  --primary-hover: #e5a040;
+  --primary-foreground: #0a0a0a;
+
+  /* Surfaces */
+  --surface: #141414;
+  --surface-hover: #1f1f1f;
+}
+
+/* ─── Tailwind Token Mapping ─────────────────────────────────────────────────
+ * @theme inline tells Tailwind to use these CSS variables inline in utilities.
+ * This means bg-background compiles to background-color: var(--background),
+ * which automatically picks up the correct light/dark value at runtime.
+ * ──────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  /* Font — set by next/font in [locale]/layout.tsx via --font-noto-georgian */
+  --font-sans: var(--font-noto-georgian);
+
+  /* Radius */
+  --radius: var(--radius);
+  --radius-sm: var(--radius-sm);
+  --radius-lg: var(--radius-lg);
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────────
+ * Minimal base styles. Most styling is done with Tailwind utilities.
+ * ──────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-georgian), ui-sans-serif, system-ui, sans-serif;
+}

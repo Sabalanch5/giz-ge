@@ -1,0 +1,37 @@
+---
+description: Project architecture rules and directory conventions for gap.ge
+globs: ["src/**/*", "messages/**/*", "middleware.ts"]
+alwaysApply: true
+---
+
+# Project Architecture
+
+## Directory Roles
+
+| Path | Purpose |
+|---|---|
+| `src/app/[locale]/` | Route files only — thin, no business logic |
+| `src/components/ui/` | Atomic, reusable primitives (Button, Input, Badge, etc.) |
+| `src/components/layout/` | Layout chrome (Header, Footer, Nav, LanguageSwitcher) |
+| `src/components/common/` | Shared layout helpers (Container, Section, etc.) |
+| `src/features/{name}/` | Feature-scoped components, hooks, and types |
+| `src/lib/` | Pure utility functions — no side effects, no React |
+| `src/config/` | App-wide constants (non-localized values only) |
+| `src/i18n/` | next-intl routing config and navigation exports |
+| `messages/` | Translation JSON files — never import directly in components |
+| `public/` | Static assets (images, fonts, favicons) |
+
+## Rules
+
+- **Route files are thin.** `page.tsx` and `layout.tsx` import from features/components — no markup or business logic directly in route files.
+- **Server Components by default.** Add `'use client'` only when required (hooks, browser APIs, event handlers that can't be passed as props).
+- **Features are self-contained.** Each `src/features/{name}/` folder owns its components, hooks, and types. Pages import from features, not the other way around.
+- **No hardcoded visible strings.** All user-facing text uses `useTranslations` or `getTranslations`.
+- **No `../../` relative imports.** Always use `@/` path aliases.
+
+## Adding a New Page
+
+1. Create `src/app/[locale]/your-route/page.tsx`
+2. Create the page component in `src/features/your-route/YourPage.tsx`
+3. Add translation keys to `messages/ka.json` and `messages/en.json`
+4. Export `generateMetadata` from the page for SEO

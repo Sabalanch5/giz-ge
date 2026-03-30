@@ -1,0 +1,54 @@
+---
+description: Security rules and safe coding practices for gap.ge
+globs: ["src/**/*", "next.config.ts", ".env*"]
+alwaysApply: true
+---
+
+# Security Rules
+
+## Environment Variables
+
+- Never commit `.env` or `.env.local` — only `.env.example` (with placeholder values) is committed
+- Only `NEXT_PUBLIC_*` variables are safe to expose to the browser — everything else stays server-only
+- Validate required env vars at startup; fail fast rather than silently using undefined
+
+## User Input
+
+- Never pass user input to `dangerouslySetInnerHTML`
+- Sanitize and validate all user-supplied data before use
+- Use parameterized queries for all future database operations — never string-interpolate SQL
+
+## HTTP Headers
+
+Security headers are set in `next.config.ts`:
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+
+Add a Content-Security-Policy header before the first public launch.
+
+## Dependencies
+
+- Keep dependencies minimal — every package is a potential attack surface
+- Run `npm audit` before each production deployment
+- Do not install packages for one-off tasks (use built-in APIs instead)
+
+## Authentication (future)
+
+- Use an established provider (NextAuth.js / Auth.js, Clerk, etc.) — never roll custom auth
+- Store sessions server-side; never store auth tokens in localStorage
+- Protect all admin/dashboard routes with middleware-level auth checks
+
+## API Routes (future)
+
+- Validate all request bodies with zod before processing
+- Rate-limit public endpoints
+- Return generic error messages to clients — never expose stack traces or internal details in production
+- Use CSRF protection for state-mutating endpoints
+
+## Secrets Checklist Before Commit
+
+- [ ] No `.env` or `.env.local` in the diff
+- [ ] No API keys or secrets hardcoded in source files
+- [ ] `npm audit` reports no high/critical vulnerabilities

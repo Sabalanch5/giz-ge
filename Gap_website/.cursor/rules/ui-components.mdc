@@ -1,0 +1,57 @@
+---
+description: UI, styling, and component rules for gap.ge — Tailwind v4 + CSS variables
+globs: ["src/**/*.tsx", "src/app/globals.css"]
+alwaysApply: true
+---
+
+# UI & Component Rules
+
+## Design Token System
+
+All visual values (colors, font, radius) are CSS custom properties in `src/app/globals.css`.
+These are the **single source of truth** — Tailwind utilities are just aliases for them.
+
+```
+globals.css :root / .dark   ← define CSS custom properties (the source)
+globals.css @theme inline   ← maps CSS variables to Tailwind utilities
+Component className          ← uses Tailwind utilities (bg-background, text-primary, etc.)
+```
+
+**Never hardcode color hex values in components.** Use semantic Tailwind classes:
+
+| Token class | Resolves to |
+|---|---|
+| `bg-background` | Page background |
+| `bg-background-subtle` | Slightly off-white / off-black surface |
+| `text-foreground` | Primary text |
+| `text-foreground-muted` | Secondary/subdued text |
+| `border-border` | Default border |
+| `bg-primary` | Brand accent color |
+| `text-primary` | Brand accent text |
+| `bg-surface` | Card / panel background |
+| `bg-surface-hover` | Hover state for surfaces |
+
+## Dark Mode
+
+- Class-based via next-themes (`attribute="class"`)
+- `@variant dark (&:is(.dark *))` in globals.css enables `dark:` Tailwind prefix
+- `suppressHydrationWarning` on `<html>` prevents the theme flash warning
+
+## Theming — How to Retheme
+
+1. Open `src/app/globals.css`
+2. Update values in `:root` (light theme) and `.dark` (dark theme)
+3. Done — all components pick up the change automatically
+
+## Component Conventions
+
+- Accept `className` prop on all reusable components for external extensibility
+- Use `cn()` from `@/lib/utils` for conditional/merged class strings
+- Use semantic HTML (`<main>`, `<nav>`, `<header>`, `<footer>`, `<section>`, `<article>`)
+- Add `aria-label` and `aria-hidden` attributes where appropriate
+
+## Do Not
+
+- Do not add icon libraries — use inline SVG for now, add an icon library when it becomes worth the bundle cost
+- Do not add animation/motion libraries — use Tailwind transitions for simple cases
+- Do not add component libraries (shadcn, Radix, etc.) without discussion — add them when the design is defined
