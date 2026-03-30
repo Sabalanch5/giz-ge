@@ -1,7 +1,7 @@
 {
   "common": {
-    "siteName": "GAP",
-    "siteTitle": "GAP.GE",
+    "siteName": "GIZ",
+    "siteTitle": "GIZ.GE",
     "toggleTheme": "Toggle theme",
     "lightMode": "Light mode",
     "darkMode": "Dark mode",
@@ -15,7 +15,7 @@
     "description": "Thank you for your patience. Our website will be available soon."
   },
   "meta": {
-    "defaultTitle": "GAP.GE",
-    "defaultDescription": "GAP — Quality wheat products"
+    "defaultTitle": "GIZ.GE",
+    "defaultDescription": "GIZ - Quality wheat products"
   }
 }

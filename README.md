@@ -1,6 +1,6 @@
-# GAP.GE Website
+# GIZ.GE Website
 
-Bilingual Georgian and English website for GAP, built with Next.js App Router.
+Bilingual Georgian and English website for GIZ, built with Next.js App Router.
 
 ## Stack
 
@@ -98,4 +98,4 @@ Deploy on Vercel or any Next.js-compatible platform.
 
 Required environment variable:
 
-- `NEXT_PUBLIC_SITE_URL` - production site URL, for example `https://gap.ge`
+- `NEXT_PUBLIC_SITE_URL` - production site URL, for example `https://giz.ge`
