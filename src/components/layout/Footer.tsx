@@ -9,10 +9,10 @@ export async function Footer({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: 'common' });
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-border bg-background border-t">
       <Container>
         <div className="flex h-14 items-center justify-center">
-          <p className="text-sm text-foreground-muted">
+          <p className="text-foreground-muted text-sm">
             © {new Date().getFullYear()} {t('siteName')}
           </p>
         </div>

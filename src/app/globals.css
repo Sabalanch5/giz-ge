@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ─── Dark mode strategy ──────────────────────────────────────────────────────
  * next-themes adds class="dark" to <html>. This variant makes Tailwind's
@@ -27,10 +27,9 @@
   --border-strong: #d4d4d4;
 
   /* Primary brand color
-   * ⚠️  PLACEHOLDER — replace with your actual brand color when available
-   * Current: warm amber, inspired by wheat tones */
-  --primary: #c47d2e;
-  --primary-hover: #a86520;
+   * Current: Industrial Blue, inspired by warehousing and logistics */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
   --primary-foreground: #ffffff;
 
   /* Surfaces (cards, panels, dropdowns) */

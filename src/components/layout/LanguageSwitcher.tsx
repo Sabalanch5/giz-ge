@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
             className={[
               'cursor-pointer rounded px-2 py-1 text-sm font-medium transition-colors',
               isActive
-                ? 'cursor-default text-primary'
+                ? 'text-primary cursor-default'
                 : 'text-foreground-muted hover:text-foreground',
             ].join(' ')}
           >

@@ -26,8 +26,13 @@ const notoSansGeorgian = Noto_Sans_Georgian({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ka" suppressHydrationWarning className={notoSansGeorgian.variable}>
-      <body className="flex min-h-screen flex-col bg-background text-foreground">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className="bg-background text-foreground flex min-h-screen flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>

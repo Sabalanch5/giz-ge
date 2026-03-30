@@ -12,10 +12,13 @@
   "underConstruction": {
     "heading": "Coming Soon",
     "subheading": "We're working on something great",
-    "description": "Thank you for your patience. Our website will be available soon."
+    "description": "Thank you for your patience. Our website will be available soon.",
+    "contact": "Contact Us",
+    "email": "info@giz.ge",
+    "phone": "+995 32 2 12 34 56"
   },
   "meta": {
     "defaultTitle": "GIZ.GE",
-    "defaultDescription": "GIZ - Quality wheat products"
+    "defaultDescription": "GIZ - Modern Warehousing & Logistics Solutions"
   }
 }
